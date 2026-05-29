@@ -1,0 +1,9 @@
+streamlit
+httpx
+pandas
+python-dotenv
+
+# Optional / future:
+# scikit-learn
+# sqlalchemy
+# python-dotenv
