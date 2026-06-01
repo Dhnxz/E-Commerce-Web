@@ -20,6 +20,15 @@ load_dotenv(ROOT / ".env")
 
 from backend.supabase_client import SupabaseClient
 from backend.recommendation import recommend
+from login_page import render_login_page
+
+
+st.set_page_config(
+    page_title="Recommendation Engine",
+    page_icon="✦",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 
 
 def get_client():
@@ -32,6 +41,13 @@ def get_client():
 
 
 def main():
+    st.sidebar.title("Navigation")
+    view = st.sidebar.radio("Choose a screen", ["Recommendation Demo", "Ecommerce Login"], index=0)
+
+    if view == "Ecommerce Login":
+        render_login_page()
+        return
+
     st.title("Recommendation Engine — Demo")
 
     client = get_client()
